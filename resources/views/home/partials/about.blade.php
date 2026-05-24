@@ -1,6 +1,6 @@
 <section id="about" class="py-32 px-6 relative">
     <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-20 items-center">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
 
             {{-- Left: Image + decorative --}}
             <div data-reveal="left" class="relative flex justify-center md:justify-start">
@@ -10,7 +10,7 @@
                     <div style="position:absolute;inset:-6px;border-radius:20px;border:1px dashed rgba(59,130,246,0.08);"></div>
 
                     {{-- Profile image --}}
-                    <div style="width:280px;height:320px;border-radius:16px;overflow:hidden;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;">
+                    <div style="width:min(280px,100%);height:auto;aspect-ratio:7/8;border-radius:16px;overflow:hidden;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;">
                         <img src="https://ui-avatars.com/api/?name=Arya+Adhitya&size=600&background=1e3a5f&color=60a5fa&bold=true"
                              alt="Arya Adhitya"
                              style="width:100%;height:100%;object-fit:cover;">

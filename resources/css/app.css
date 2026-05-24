@@ -845,30 +845,209 @@ html.light-mode .bg-shape { border-color: rgba(59,130,246,0.06); }
 html.light-mode #bg-shapes { opacity: 0.5; }
 html.light-mode #bg-grid { opacity: 0.15; }
 
-/* Mobile fixes */
+/* ========================================
+   OVERFLOW PROTECTION (Global)
+======================================== */
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Sections must contain their absolute children
+   (prevents glow-orbs from causing page-wide horizontal overflow) */
+section {
+    overflow: hidden;
+}
+
+/* ========================================
+   TOUCH DEVICE — Hide Custom Cursor
+======================================== */
+@media (hover: none) and (pointer: coarse) {
+    #cursor-dot,
+    #cursor-ring {
+        display: none !important;
+    }
+    body { cursor: auto !important; }
+}
+
+/* ========================================
+   MOBILE — Tablet & Phone (≤ 768px)
+======================================== */
 @media (max-width: 768px) {
+
+    /* ---------- Layout ---------- */
     section {
         padding-left: 1.25rem !important;
         padding-right: 1.25rem !important;
     }
-    
+
+    /* Reduce py-32 (8rem / 128px) → py-16 (4rem) on mobile */
+    .py-32 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
     .section-title {
         font-size: clamp(1.5rem, 7vw, 2rem) !important;
     }
 
-    .glass-card {
-        margin-right: 0 !important;
+    /* ---------- Navbar ---------- */
+    #navbar {
+        padding: 0.875rem 1rem !important;
     }
 
-    #testimonial-track > div {
+    /* ---------- Hero ---------- */
+    #hero {
+        min-height: 100svh;
+        padding-top: 6rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    #hero h1 {
+        font-size: clamp(2.25rem, 12vw, 3.5rem) !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    /* ---------- About ---------- */
+    /* Responsive gap (overrides gap-20 = 5rem) */
+    #about .grid {
+        gap: 2.5rem !important;
+    }
+
+    /* Responsive profile image */
+    #about [style*="width:280px"] {
+        width: min(280px, 100%) !important;
+        height: auto !important;
+        aspect-ratio: 7 / 8 !important;
+    }
+
+    /* Floating experience badge — prevent clipping */
+    #about [style*="right:-20px"] {
+        right: -4px !important;
+        bottom: -16px !important;
+    }
+
+    /* ---------- Contact ---------- */
+    /* Reduce form card padding */
+    #contact .glass-card {
+        padding: 1.5rem !important;
+    }
+
+    /* Stack 3-col contact-info grid to 1 col */
+    #contact .grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Long email text — allow wrapping */
+    #contact .glass-card p[style*="white-space:nowrap"] {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        word-break: break-all !important;
+    }
+
+    /* ---------- Testimonials ---------- */
+    #testi-track > div {
         min-width: 100% !important;
     }
 
-    .timeline-line {
-        left: 16px !important;
+    /* ---------- Experience ---------- */
+    .timeline-line { left: 16px !important; }
+    .timeline-dot  { left: 16px !important; }
+
+    /* Hide empty spacer divs from alternating two-column layout */
+    #experience .relative > div:empty {
+        display: none !important;
     }
 
-    .timeline-dot {
-        left: 16px !important;
+    /* ---------- Scroll Reveal — prevent horizontal overflow flash ---------- */
+    [data-reveal="left"] {
+        transform: translateX(0) translateY(24px) !important;
+    }
+    [data-reveal="right"] {
+        transform: translateX(0) translateY(24px) !important;
+    }
+    [data-reveal="left"].revealed,
+    [data-reveal="right"].revealed {
+        transform: translateX(0) translateY(0) !important;
+    }
+
+    /* ---------- Glow orbs — reduce on mobile ---------- */
+    .glow-orb { opacity: 0.06 !important; }
+    .aurora-orb {
+        filter: blur(100px) !important;
+        opacity: 0.08 !important;
+    }
+
+    /* ---------- Glass card ---------- */
+    .glass-card { margin-right: 0 !important; }
+
+    /* ---------- Scroll to Top ---------- */
+    #scroll-top {
+        bottom: 1.25rem !important;
+        right: 1.25rem !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+        padding: 2rem 1.25rem !important;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   MOBILE — Small phones (≤ 480px)
+======================================== */
+@media (max-width: 480px) {
+
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Hero heading smaller */
+    #hero h1 {
+        font-size: clamp(2rem, 11vw, 2.75rem) !important;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-outline {
+        padding: 0.625rem 1.25rem !important;
+        font-size: 0.8125rem !important;
+    }
+
+    /* Tags */
+    .tech-tag {
+        font-size: 0.625rem !important;
+        padding: 0.2rem 0.5rem !important;
+    }
+
+    /* Stats counters */
+    .counter-num {
+        font-size: 1.5rem !important;
+    }
+
+    /* Testimonial cards */
+    .testimonial-card {
+        padding: 1.25rem !important;
+    }
+
+    /* Contact form card */
+    #contact .glass-card {
+        padding: 1.25rem !important;
+    }
+
+    /* About section gap */
+    #about .grid {
+        gap: 2rem !important;
+    }
+
+    /* Experience cards */
+    #experience .glass-card {
+        padding: 1.25rem !important;
     }
 }

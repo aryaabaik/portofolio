@@ -15,7 +15,7 @@
             </p>
         </div>
 
-        <div data-reveal data-delay="150" class="glass-card" style="padding:2.5rem;">
+        <div data-reveal data-delay="150" class="glass-card" style="padding:2.5rem 2rem;">
             <form id="contact-form" novalidate>
                 @csrf
                 <div class="grid md:grid-cols-2 gap-4" style="margin-bottom:1rem;">
@@ -54,7 +54,7 @@
         </div>
 
         {{-- Contact info row --}}
-        <div data-reveal data-delay="300" class="grid grid-cols-3 gap-4" style="margin-top:2rem;">
+        <div data-reveal data-delay="300" class="grid grid-cols-1 sm:grid-cols-3 gap-3" style="margin-top:1.5rem;">
             @foreach([
                 ['Email', 'aryaadhitya158@gmail.com', 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22,6 L12,13 L2,6'],
                 ['LinkedIn', 'linkedin.com/in/arya', 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'],
