@@ -16,6 +16,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN npm install
 RUN npm run build
+RUN ls -la public/build || echo "BUILD FOLDER MISSING"
 
 EXPOSE 8080
 
