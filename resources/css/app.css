@@ -844,3 +844,31 @@ html.light-mode #cursor-glow {
 html.light-mode .bg-shape { border-color: rgba(59,130,246,0.06); }
 html.light-mode #bg-shapes { opacity: 0.5; }
 html.light-mode #bg-grid { opacity: 0.15; }
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    section {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 7vw, 2rem) !important;
+    }
+
+    .glass-card {
+        margin-right: 0 !important;
+    }
+
+    #testimonial-track > div {
+        min-width: 100% !important;
+    }
+
+    .timeline-line {
+        left: 16px !important;
+    }
+
+    .timeline-dot {
+        left: 16px !important;
+    }
+}
